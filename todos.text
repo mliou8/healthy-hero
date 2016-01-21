@@ -1,0 +1,20 @@
+Todos:
+
+- Research into react native, and find out what the functionality of it is.
+- Research into yelp api, and find out what information you can pull from it
+
+
+
+Overall Product Flow (schema):
+
+- Scrape product (food) info from restaurants
+- Scrape assc. nutritional information from food databases
+- Associate the two
+- Take in some user feedback from the frontend (age, gender, weight)
+- Serve up a restaurant each day along with associated data with that restaurant
+
+Future Features:
+
+- Gamification aspect
+- More locations supported
+- More persistence
