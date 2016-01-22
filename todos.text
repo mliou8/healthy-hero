@@ -1,7 +1,28 @@
 Todos:
 
 - Research into react native, and find out what the functionality of it is.
-- Research into yelp api, and find out what information you can pull from it
+	- Recommended not to try learning react during this hackathon.
+- Research into yelp api, and find out what information you can pull from it. (Pending)
+
+- Yelp doesn't return menu data. Yelp instead returns a certain amount of restaurants.
+
+- Found a API throguh NSDA that returns nutrient information on a lot of different foods. Or more specifically
+you can sort by nutrients which seems to make better sense for my app.
+	- Follow up step is to get a certain get request from their API working
+	- Then get the specific type of request that I'm going to be using.
+	- Then probably learn how to .gitignore the development.js file
+	- Then decide the schemas of information
+
+
+
+
+- Look into how to track geographic data for a user
+
+- Start to decide what the routes will look like, what type of schema I'll be designing.
+
+- Decide what the routes will look like
+
+- Start rendering out a single page that renders some data
 
 
 
