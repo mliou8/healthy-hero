@@ -1,5 +1,5 @@
 app.config(function ($stateProvider) {
-
+  console.log("This config is being read");
     $stateProvider.state('register', {
         url: '/register',
         templateUrl: 'js/user/register.html',
@@ -10,43 +10,33 @@ app.config(function ($stateProvider) {
 
 app.controller('RegisterCtrl', function ($scope, AuthService, $state, RegisterFactory) {
 
-     $scope.userInfo = { }
-     $scope.badPic = false;
-     $scope.avatarID = "blank-avatar"
+  console.log("This controller is being read");
+  $scope.printData = function () {
+    console.log("Hit this function")
+    console.log($scope.userInfo.name)
+  }
+  // $scope.loginUser = function (userInfo) {
 
-     $scope.image_source = $scope.userInfo.imageURL ? $scope.userInfo.imageURL : "https://s-media-cache-ak0.pinimg.com/236x/ee/1b/fc/ee1bfc6d80856df0a748bda63e69d4d4.jpg";
+    //     $scope.error = null;
+    //     console.log("new info", userInfo)
+    //     AuthService.login(userInfo).then(function () {
+    //         $state.go('user');
+    //     }).catch(function () {
+    //         $scope.error = 'Invalid registration credentials.';
+    //     });
+    // };
 
-    $scope.$watch('userInfo.imageURL', function(newValue, oldValue) {
-    console.log("CHANGE")
-      var picTest = (/\.gif$|\.jpg$|\.png$|\.gif$/)
-      var validPic = picTest.test(newValue) && newValue && newValue.length>0
-      $scope.image_source = validPic ? newValue : "https://s-media-cache-ak0.pinimg.com/236x/ee/1b/fc/ee1bfc6d80856df0a748bda63e69d4d4.jpg";
-      if (!validPic && newValue){
-        console.log("changing to bad")
-        $scope.badPic = true;
-        $scope.image_source = 'http://www.greenchu.de/sugimori/071.jpg'
-      } else { $scope.badPic = false}
-    });
-
-    $scope.loginUser = function (userInfo) {
-
-        $scope.error = null;
-        console.log("new info", userInfo)
-        AuthService.login(userInfo).then(function () {
-            $state.go('user');
-        }).catch(function () {
-            $scope.error = 'Invalid registration credentials.';
-        });
+  $scope.registerSubmit = function() {
+      console.log("user email", $scope.userInfo.email)
+      console.log("user password", $scope.userInfo.password)
+      console.log("user name", $scope.userInfo.name)
+      RegisterFactory.addUser($scope.userInfo)
+          .then(function(user) {
+              console.log("user back", user)
+              // $scope.loginUser({email: user.user.email, password: $scope.userInfo.password})
+          })
     };
 
-        $scope.registerSubmit = function() {
-            console.log("user info", $scope.userInfo)
-            RegisterFactory.addUser($scope.userInfo)
-                .then(function(user) {
-                    console.log("user back", user)
-                    $scope.loginUser({email: user.user.email, password: $scope.userInfo.password})
-                })
-        };
 });
 
 

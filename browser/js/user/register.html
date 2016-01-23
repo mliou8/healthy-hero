@@ -1,0 +1,30 @@
+<div class= "container">
+		<h3> Registration Form </h3>
+
+    <form id="register-form" name="form" ng-submit="registerSubmit(form.$valid)" class="col-md-6" novalidate>
+
+        <alert type="danger" ng-show="error">
+            {{ error }}
+        </alert>
+
+        <div class="form-group">
+            <label for="email">Email*</label>
+            <input type="email" name="email" ng-model="userInfo.email" class="form-control" id="email" placeholder="Enter email" required>
+            <p ng-show="form.email.$invalid && !form.email.$pristine" class="help-block">Enter a valid email.</p>
+        </div>
+
+        <div class="form-group">
+            <label for="login-password">Password*</label>
+            <input type="password" name="password" ng-model="userInfo.password" class="form-control" id="login-password" placeholder="Password" required>
+        </div>
+
+        <div class="form-group">
+            <label for="name">Name*</label>
+            <input type="text" name="name" ng-model="userInfo.name" class="form-control" id="name" placeholder="Name" required>
+            <p ng-show="form.name.$invalid && !form.name.$pristine" class="help-block">Your name is required.</p>
+        </div>
+
+
+        <button type="submit" class="btn btn-default" ng-disabled="form.$invalid || badPic">Submit</button>
+    </form>
+</div>
