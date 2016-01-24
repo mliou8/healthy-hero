@@ -17,11 +17,22 @@ var schema = new mongoose.Schema({
         type: String
     },
     completedQuests: [{
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'Quest'
     }],
-    totalExperience: {
+    currentQuest: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Quest'
+    },
+    age: {
         type: Number
+    },
+    gender: {
+        type: String
+    },
+    totalExperience: {
+        type: Number,
+        default: 0
     },
     twitter: {
         id: String,

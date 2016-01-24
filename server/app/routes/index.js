@@ -2,9 +2,8 @@
 var router = require('express').Router();
 module.exports = router;
 
-router.use('/nsda', require('./nsda'));
 router.use('/user', require('./user'));
-
+router.use('/quest', require('./quest'));
 
 // Make sure this is after all of
 // the registered routes!

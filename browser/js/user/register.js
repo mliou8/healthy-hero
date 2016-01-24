@@ -1,5 +1,4 @@
 app.config(function ($stateProvider) {
-  console.log("This config is being read");
     $stateProvider.state('register', {
         url: '/register',
         templateUrl: 'js/user/register.html',
