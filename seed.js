@@ -35,9 +35,7 @@ var seedUsers = function () {
             password: 'potus'
         }
     ];
-
     return User.createAsync(users);
-
 };
 
 connectToDb.then(function () {
