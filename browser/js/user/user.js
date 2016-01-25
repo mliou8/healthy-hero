@@ -38,8 +38,14 @@ app.config(function ($stateProvider) {
 		resolve: {
             currentUser: function(AuthService){
                 return AuthService.getLoggedInUser();
+            },
+            currentQuest: function (currentUser, QuestFactory) {
+            	return QuestFactory.getQuest(currentUser.currentQuest)
+				.then(function (response) {
+					return response;
+				})
             }
-    	}
+		}
 	})
 })
 

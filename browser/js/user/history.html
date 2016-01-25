@@ -12,43 +12,60 @@
       </div>
     </div>
 
-	<div class="row">
-		<div class="col-lg-6">
-			<h3 style="margin-top: -2.5px"> {{completedQuests}} </h3>
-		</div>
+<div class="row">
+	<div class="col-lg-6">
+		<h4 style="text-decoration: underline;"> Quests Completed: </h4>
+		<h3> Hunter Gatherer </h3>
+		<button style="margin-top:-40px" class="btn pull-right btn-default align-right" ng-click="toggleDetails2()"> Show Details </button> <button class="btn btn-default pull-right"> Mark as Complete </button>
 
-		<div class="col-lg-6">
-
-		</div>
+		<p> Just like your ancestors did, venture out to Whole Foods so you can collect your prize. </p>
 	</div>
+</div>
 
-	<div class="row">
-		<div class="col-lg-4">
-		<h3> Most commonly finished quests: </h3>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-lg-2">
-		<h3> Badges won: </h3>
-		</div>
+<div class="row"> <!-- Small row just to capture separator -->
+      <div class="col-md-12">
+        <hr />
+      </div>
+</div>
 
-		<div class="col-lg-1">
-		<img src="/images/bee.png" style="width:65px;height:55px;">
-		</div>
-		<div class="col-lg-1">
-		<img src="/images/pepper.png" style="width:65px;height:55px;">
-		</div>
-		<div class="col-lg-1">
-		<img src="/images/penguin.png" style="width:65px;height:55px;">
-		</div>
-		<div class="col-lg-1">
-		<img src="/images/fork.png" style="width:65px;height:55px;">
-		</div>
-		<div class="col-lg-1">
-		<img src="/images/poop.png" style="width:65px;height:55px;">
-		</div>
-		<div class="col-lg-1">
-		<p> (What am I doing here?) </p>
-		</div>
-	</div>
+<div ng-show="showDetails2">
+<div class="row">
+		<ul class="media-list">
+			<li class="media">
+	    		<div class="media-left">
+	      			<a href="#">
+	        		<img class="media-object" style="width:152px;height:114px;" src="http://schollefamilynutrition.com/wp-content/uploads/2014/04/grass-fed-beef.jpg">
+	      			</a>
+	    		</div>
+	    	<div class="media-body">
+	      	<h4 class="media-heading" style="font-style: italic"> Grass-fed Red Meat: </h4>
+	      	<br>
+	      	<p> Alpha Lipoic Acid has a lot of health benefits. But you don\'t need much convincing to eat some beef.</p>
+	      	<p> Nutrients: [Protein, Alpha-Lipoic Acid]</p>
+	      	</div>
+			</li>
+		</ul>
+</div>
+
+<div class="row">
+		<ul class="media-list">
+			<li class="media">
+	    		<div class="media-left">
+	      			<a href="#">
+	        		<img class="media-object" style="width:152px;height:114px;" src="http://www.newhealthadvisor.com/images/1HT00584/eggs.jpg">
+	      			</a>
+	    		</div>
+	    	<div class="media-body">
+	      	<h4 class="media-heading" style="font-style: italic"> Chicken Eggs: </h4>
+	      	<br>
+	      	<p> Which came first, the chicken or this lame blurb. </p>
+	      	<p> Nutrients: [Protein, B-Vitamins]</p>
+	      	</div>
+			</li>
+		</ul>
+</div>
+
+
+</div>
+
 </div>
