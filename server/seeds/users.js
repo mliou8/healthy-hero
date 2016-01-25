@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
             'password': 'password',
             'name': 'Michael',
             'completedQuests': ['Hunter Gatherer', 'Radicalize your Life'],
-            'currentQuest': 'The Seedy Villain',
+            'currentQuest': 'Radicalize your Life',
             'age': 25,
             'gender': 'Male',
             'totalExperience': '215',

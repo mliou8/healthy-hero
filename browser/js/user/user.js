@@ -6,27 +6,68 @@ app.config(function ($stateProvider) {
         resolve: {
             currentUser: function(AuthService){
                 return AuthService.getLoggedInUser();
+            },
+            currentQuest: function (currentUser, QuestFactory) {
+            	return QuestFactory.getQuest(currentUser.currentQuest)
+				.then(function (response) {
+					return response;
+				})
+            }
+    	}
+	})
+	$stateProvider.state('stats', {
+		url: '/user-statistics',
+		templateUrl: 'js/user/stats.html',
+		controller: 'UserCtrl',
+		resolve: {
+            currentUser: function(AuthService){
+                return AuthService.getLoggedInUser();
+            },
+            currentQuest: function (currentUser, QuestFactory) {
+            	return QuestFactory.getQuest(currentUser.currentQuest)
+				.then(function (response) {
+					return response;
+				})
+            }
+    	}
+	})
+	$stateProvider.state('history', {
+		url: '/user-history',
+		templateUrl: 'js/user/history.html',
+		controller: 'UserCtrl',
+		resolve: {
+            currentUser: function(AuthService){
+                return AuthService.getLoggedInUser();
             }
     	}
 	})
 })
 
-app.controller('UserCtrl', function ($scope, AuthService, currentUser, $state, QuestFactory) {
+app.controller('UserCtrl', function ($scope, AuthService, currentUser, $state, QuestFactory, ProductFactory, currentQuest) {
 
 	$scope.currentUser = currentUser;
 	$scope.userLevel = levelCalculator();
-
+	$scope.showDetails = false;
 	function levelCalculator () {
 		var userLevel = Math.floor(currentUser.totalExperience / 8)
 		return userLevel;
 	}
-	//Set the current Quest
-	QuestFactory.getQuest($scope.currentUser.currentQuest)
+	//get the current Quest
+	$scope.currentQuest = currentQuest;
+	ProductFactory.getProduct(currentQuest[0].products[0])
 	.then(function (response) {
-		$scope.currentQuest = response;
+		$scope.currentProduct = response[0];
 	})
 
+	$scope.toggleDetails = function () {
+		if (!$scope.showDetails) {
+			$scope.showDetails = true;
+		} else {
+			$scope.showDetails = false;
+		}
+	}
 	var completedQuests = [];
+
 	currentUser.completedQuests.forEach(function (quest) {
 		QuestFactory.getQuest(quest)
 		.then(function (response) {
@@ -68,8 +109,15 @@ app.factory('QuestFactory', function ($http) {
 	}
 })
 
-// app.factory('Entry', function ($http, $resource) {
-
-// })
+app.factory('ProductFactory', function ($http) {
+	return {
+		getProduct: function(productName) {
+			return $http.get('/api/product/' + productName)
+			.then(function (response) {
+				return response.data;
+			})
+		}
+	}
+})
 
 

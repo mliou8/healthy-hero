@@ -9,8 +9,8 @@
             </li>
         </ul>
         <button ng-show="!user" ui-sref="login" class="btn login-button">Login</button>
-        <button ui-sref="register"
-        class="btn btn-default">Register</button>
+        <button ng-show="!user" ui-sref="register"
+        class="btn login-button" style="margin:10px">Register</button>
         <div ng-show="user" class="welcome">
             <span>Welcome, {{ user.email }}!</span>
             <a ng-click="logout()">Logout</a>

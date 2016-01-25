@@ -3,7 +3,11 @@
 }
 
 body {
-  background: #fdfdfd;
+  background-image:url(/images/old_moon.png);
+}
+
+* {
+  font-family: "Courier New", Courier, monospace
 }
 
 @mixin clearfix {
@@ -24,3 +28,4 @@ body {
 @import 'about/main';
 @import 'tutorial/main';
 @import 'login/main';
+@import 'quests/main';

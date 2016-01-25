@@ -13,12 +13,12 @@ router.get('/', function (req, res, next) {
 });
 
 
-//Get a product by ID
+//Get a product by name
 router.get('/:name', function (req, res, next){
 	Product.find({name: req.params.name})
 	.then(function (product) {
 		if(!product) {
-			var err = new Error('Product #' + req.params.id + ' not found');
+			var err = new Error('Product #' + req.params.name + ' not found');
 			err.status = 404;
 			throw err;
 		} res.json(product);
