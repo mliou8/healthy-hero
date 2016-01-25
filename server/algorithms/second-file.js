@@ -1,5 +1,5 @@
-var calculator = require('./test')
-var http = require('http');
+// var calculator = require('./test')
+// var http = require('http');
 
 
- http.request(calculator.options, calculator.callback).end();
+//  http.request(calculator.options, calculator.callback).end();

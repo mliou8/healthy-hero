@@ -13,9 +13,17 @@
 </div>
 
 <div class="row">
+<br>
+<br>
 Your daily quest today is:
-
+{{currentQuest}}
+{{currentQuest[0].description}}
+{{currentQuest[0].products}}
 </div>
+
+Your completed quests are here:
+
+{{completedQuests}}
 </div>
 <br>
 Your level is {{userLevel}}

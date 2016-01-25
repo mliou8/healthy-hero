@@ -14,19 +14,35 @@ router.get('/', function (req, res, next) {
 	.then(null, next)
 });
 
+router.get('/:name', function (req, res, next) {
+	Quest.find({name: req.params.name})
+	.then(function (quest) {
+		res.json(quest);
+	})
+	.then(null, next)
+});
+
 //Testing http request through backend
 router.get('/test', function (req, res, next) {
 	http.request(calculator.options, calculator.callback).end()
 })
 
 
-router.post('/', function (req, res, next) {
-	User
-	.create(req.body.data)
-	.then(function (result) {
-		res.status(201).json(result);
+router.put('/:name', function (req, res, next) {
+	Quest.find({name: req.params.name})
+	.then(function(quest) {
+		for (var key in req.body) {
+			quest[key] = req.body[key];
+		}
+		return quest.save();
 	})
-	.then(null, next)
+	.then(function(quest) {
+		return Quest.find({name: req.params.id})
+	})
+	.then(function(quest) {
+		res.json(quest);
+	})
+	.then(null, next);
 })
 
 

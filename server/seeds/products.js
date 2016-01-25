@@ -5,14 +5,14 @@ var products = [
 
 {
 	"name": "Grass-fed Red Meat",
-	"nutrients": ['Protein', 'Alpha Lipoic Acid'],
+	"nutrients": ['Protein', 'Alpha-Lipoic-Acid'],
 	"category": ['Animal'],
 	"photoUrl": 'http://schollefamilynutrition.com/wp-content/uploads/2014/04/grass-fed-beef.jpg',
 	"description": 'Alpha Lipoic Acid has a lot of health benefits. But you don\'t need much convincing to eat some beef.'
 },
 {
 	"name": "Flaxseeds",
-	"nutrients": ['Omega-3', 'Fat'],
+	"nutrients": ['Omega3', 'Fat'],
 	"category": ['Nut'],
 	"photoUrl": 'http://www.nutritionhealthconnection.com/images/Nuts/Brown-Flax-Seeds-Main.jpg',
 	"description": 'They\'re say what seeds? Just try them, they\'re good for you.'

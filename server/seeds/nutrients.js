@@ -7,8 +7,8 @@ var nutrients = [
 {"name": "Vitamin-C" },
 {"name": "Fat"},
 {"name": "B-Vitamins" },
-{"name": "Alpha Lipoic Acid" },
-{"name": "Omega-3"},
+{"name": 'Alpha-Lipoic-Acid'},
+{"name": "Omega3"},
 {"name": "Fiber"},
 {"name": "Antioxidants"}
 ];

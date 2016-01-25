@@ -9,7 +9,7 @@ var schema = new mongoose.Schema({
     	type: String
     },
 	products: [{
-		    type: mongoose.Schema.Types.ObjectId,
+		    type: String,
 		    ref: 'Product'
 	}],
 	reward: {

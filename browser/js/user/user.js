@@ -11,40 +11,62 @@ app.config(function ($stateProvider) {
 	})
 })
 
-app.controller('UserCtrl', function ($scope, AuthService, currentUser, $state) {
-
+app.controller('UserCtrl', function ($scope, AuthService, currentUser, $state, QuestFactory) {
 
 	$scope.currentUser = currentUser;
-	// $scope.calculator = QuestFactory.calculator();
-	var levelKey = levelGenerator();
-	levelCalculator();
-
-	function levelGenerator () {
-		var levelKey = [];
-		for (var i = 1; i < 20; i++) {
-			var temp = (i * 10) + (i * 5)
-			levelKey.push([i, temp])
-		}
-		return levelKey;
-	}
+	$scope.userLevel = levelCalculator();
 
 	function levelCalculator () {
-		if(currentUser.totalExperience < 15) {
-				$scope.userLevel = 1;
-			}
-		for (var i = 0; i < levelKey.length; i++) {
-			if (currentUser.totalExperience === levelKey[i][0]) {
-				$scope.userLevel = levelKey[i][1];
-			}
-		}
+		var userLevel = Math.floor(currentUser.totalExperience / 8)
+		return userLevel;
 	}
+	//Set the current Quest
+	QuestFactory.getQuest($scope.currentUser.currentQuest)
+	.then(function (response) {
+		$scope.currentQuest = response;
+	})
+
+	var completedQuests = [];
+	currentUser.completedQuests.forEach(function (quest) {
+		QuestFactory.getQuest(quest)
+		.then(function (response) {
+		completedQuests.push(response);
+		})
+	})
+	$scope.completedQuests = completedQuests;
+	//Get all completed Quests
+	// QuestFactory.getCompletedQuests($scope.currentUser.completedQuests)
 })
 
-// app.factory('QuestFactory', function ($http) {
-// 	return {
 
-// 	}
-// })
+app.factory('QuestFactory', function ($http) {
+	return {
+		getQuest: function (questName) {
+			return $http.get('/api/quest/' + questName)
+			.then(function (response) {
+				return response.data;
+			});
+		}
+		// getCompletedQuests: function (questArray) {
+		// 	var returnQuests = [];
+		// 	// questArray.forEach(function (quest) {
+		// 	// 	return $http.get('/api/quest/' + quest)
+		// 	// 	.then(function (response) {
+		// 	// 		returnQuests.push(response);
+		// 	// 	})
+		// 	// })
+		// 	// console.log('return quests', returnQuests);
+		// 	// return returnQuests;
+		// 	return$http(
+		// 	  method: 'GET',
+		// 	  url: '/api/quest/',
+		// 	  params: {
+		// 	    "id[]": ids // ids is [1, 2, 3, 4]
+		// 	  }
+		// 	)
+		// }
+	}
+})
 
 // app.factory('Entry', function ($http, $resource) {
 

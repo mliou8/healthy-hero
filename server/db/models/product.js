@@ -6,15 +6,13 @@ var schema = new mongoose.Schema({
         type: String
     },
     nutrients: [{
-    	nutrient: {
-    		type: mongoose.Schema.Types.ObjectId,
-    		ref: 'Nutrient'
-    	}
+        type: String,
+        ref: 'Nutrient'
     }],
-    category: {
-    	type: mongoose.Schema.Types.ObjectId,
-    	ref: 'Category'
-    },
+    category: [{
+        type: String,
+        ref: 'Category'
+    }],
     photoUrl: {
     	type: String
     },

@@ -12,20 +12,10 @@ router.get('/', function (req, res, next) {
 	.then(null, next)
 });
 
-// //Create a new product
-// router.post('/', function (req, res, next) {
-// 	console.log("Hitting the right route :", req.body.data)
-// 	User
-// 	.create(req.body.data)
-// 	.then(function (result) {
-// 		res.status(201).json(result);
-// 	})
-// 	.then(null, next)
-// })
 
 //Get a product by ID
-router.get('/:id', function (req, res, next){
-	Product.findById(req.params.id)
+router.get('/:name', function (req, res, next){
+	Product.find({name: req.params.name})
 	.then(function (product) {
 		if(!product) {
 			var err = new Error('Product #' + req.params.id + ' not found');

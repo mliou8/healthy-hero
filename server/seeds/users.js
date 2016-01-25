@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
             'email': 'testing@fsa.com',
             'password': 'password',
             'name': 'Michael',
-            'completedQuests': ['Hunter Gatherer'],
+            'completedQuests': ['Hunter Gatherer', 'Radicalize your Life'],
             'currentQuest': 'The Seedy Villain',
             'age': 25,
             'gender': 'Male',

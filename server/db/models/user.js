@@ -17,11 +17,11 @@ var schema = new mongoose.Schema({
         type: String
     },
     completedQuests: [{
-        type: mongoose.Schema.Types.ObjectId,
+        type: String,
         ref: 'Quest'
     }],
     currentQuest: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: String,
         ref: 'Quest'
     },
     age: {
