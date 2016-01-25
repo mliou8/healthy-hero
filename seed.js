@@ -17,26 +17,38 @@ name in the environment files.
 
 */
 
+
 var mongoose = require('mongoose');
 var Promise = require('bluebird');
 var chalk = require('chalk');
 var connectToDb = require('./server/db');
+
 var User = Promise.promisifyAll(mongoose.model('User'));
+var Category = Promise.promisifyAll(mongoose.model('Category'));
+var Nutrient = Promise.promisifyAll(mongoose.model('Nutrient'));
+var Quest = Promise.promisifyAll(mongoose.model('Quest'));
+var Product = Promise.promisifyAll(mongoose.model('Product'));
 
-var seedUsers = function () {
+var categoryData =require('./server/seeds/categories.js')
+var productData =require('./server/seeds/products.js')
+var userData =require('./server/seeds/users.js')
+var seedReviewData =require('./server/seeds/reviews.js')
 
-    var users = [
-        {
-            email: 'testing@fsa.com',
-            password: 'password'
-        },
-        {
-            email: 'obama@gmail.com',
-            password: 'potus'
-        }
-    ];
-    return User.createAsync(users);
-};
+
+// var seedUsers = function () {
+
+//     var users = [
+//         {
+//             email: 'testing@fsa.com',
+//             password: 'password'
+//         },
+//         {
+//             email: 'obama@gmail.com',
+//             password: 'potus'
+//         }
+//     ];
+//     return User.createAsync(users);
+// };
 
 connectToDb.then(function () {
     User.findAsync({}).then(function (users) {

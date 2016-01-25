@@ -16,14 +16,14 @@ var quests = [
 	'reward': 3
 },
 {
-	'name': 'Green is the new Black',
-	'description': 'If you\'re ever going to be on a Netflix Original Series you need to keep your energy up. Get some leafies in you.'
+	'name': 'Green is the New Black',
+	'description': 'If you\'re ever going to be on a Netflix Original Series you need to keep your energy up. Get some leafies in you.',
 	'products': ['Broccoli', 'Chili peppers'],
 	'reward': 5
 },
 {
 	'name': 'The Seedy Villain',
-	'description': 'An appreciation for classical music and penchant for cocktails make a perfect B-list villain.'
+	'description': 'An appreciation for classical music and penchant for cocktails make a perfect B-list villain.',
 	'products': ['Flaxseeds'],
 	'reward': 3
 }
