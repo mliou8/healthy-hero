@@ -54,6 +54,8 @@ app.controller('UserCtrl', function ($scope, AuthService, currentUser, $state, Q
 	$scope.currentUser = currentUser;
 	$scope.userLevel = levelCalculator();
 	$scope.showDetails = false;
+	$scope.showDetails2 = false;
+	$scope.showDetails3 = false;
 	function levelCalculator () {
 		var userLevel = Math.floor(currentUser.totalExperience / 8)
 		return userLevel;
@@ -72,6 +74,24 @@ app.controller('UserCtrl', function ($scope, AuthService, currentUser, $state, Q
 			$scope.showDetails = false;
 		}
 	}
+
+
+	$scope.toggleDetails2 = function () {
+		if (!$scope.showDetails2) {
+			$scope.showDetails2 = true;
+		} else {
+			$scope.showDetails2 = false;
+		}
+	}
+
+	$scope.toggleDetails3 = function () {
+		if (!$scope.showDetails3) {
+			$scope.showDetails3 = true;
+		} else {
+			$scope.showDetails3 = false;
+		}
+	}
+
 	var completedQuests = [];
 
 	currentUser.completedQuests.forEach(function (quest) {
