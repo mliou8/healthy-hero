@@ -10,12 +10,19 @@
 <div class="row">
 	<div class="col-lg-6">
 		<h4> Daily Quest: </h4>
-		<h3> {{currentQuest[0].name}}  </h3>
+		<h3> {{currentQuest[0].name}}({{currentQuest[0].reward}} pts)</h3>
 		<button style="margin-top:-40px" class="btn pull-right btn-default align-right" ng-click="toggleDetails()"> Show Details </button> <button class="btn btn-default pull-right"> Mark as Complete </button>
 
 		<p> {{currentQuest[0].description}} </p>
 	</div>
 </div>
+
+<div class="row"> <!-- Small row just to capture separator -->
+      <div class="col-md-12">
+        <hr />
+      </div>
+    </div>
+
 <div class="row" ng-show="showDetails">
 		<ul class="media-list">
 			<li class="media">
@@ -33,6 +40,3 @@
 		</ul>
 </div>
 </div>
-
-
-
