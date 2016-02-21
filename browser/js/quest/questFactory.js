@@ -1,10 +1,19 @@
 app.factory('QuestFactory', function($http) {
   return {
     getQuest: function(questName) {
-        return $http.get('/api/quest/' + questName)
-          .then(function(response) {
-            return response.data;
-          });
+      return $http.get('/api/quest/' + questName)
+        .then(function(response) {
+          return response.data;
+        });
+    },
+    allQuests: function(questArr) {
+        var allQuests = [];
+        return questArr.forEach(function(quest) {
+            allQuests.push($http.get('/api/quest/' + quest));
+          })
+          .then(function(data) {
+            return allQuests;
+          })
       }
       // getCompletedQuests: function (questArray) {
       // 	var returnQuests = [];
