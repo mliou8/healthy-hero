@@ -11,24 +11,23 @@
         <hr />
       </div>
     </div>
-
 	<h4> Quests: </h4>
-	<div ng-repeat="completedQuest in currentUser.completedQuestsFull"
+	<div ng-repeat="quest in completedQuests"
 	<ul class="media-list">
 		<li class="media">
 			<div class="media-body">
-				<h4 class="media-heading" style="font-style: italic"> <h4> {{completedQuest[0].name}}({{completedQuest[0].reward}} pts)</h4>
+				<h4 class="media-heading" style="font-style: italic"> <h4> {{quest[0].name}}({{quest[0].reward}} pts)</h4>
 				<button style="margin-top:-40px" class="btn pull-right btn-default align-right" ng-click="toggleDetails()"> Show Details </button>
-				<
 				<br>
-				<p> {{completedQuest[0].description}} </p>
+				<p> {{quest[0].description}} </p>
 				</div>
-				<div class = "row" >
-					<ul ng-repeat="product in completedQuest.products" class="media-list">
+				<div class = "row" ng-show="showDetails">
+
+					<ul ng-repeat="product in quest.productsFull" class="media-list">
 							<li class="media">
 					    		<div class="media-left">
 					      			<a href="#">
-					        		<img class="media-object" style="width:152px;height:114px;" src=" {{product.photoUrl}} ">
+					        		<img class="media-object" style="width:152px;height:114px;" src="">
 					      			</a>
 					    		</div>
 					    	<div class="media-body">

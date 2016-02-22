@@ -7,11 +7,8 @@ app.config(function($stateProvider) {
       currentUser: function(AuthService) {
         return AuthService.getLoggedInUser();
       },
-      currentQuest: function(currentUser, QuestFactory) {
-        return QuestFactory.getQuest(currentUser.currentQuest)
-          .then(function(response) {
-            return response;
-          })
+      completedQuestsFull: function(currentUser, QuestFactory) {
+        return QuestFactory.populateQuests(currentUser.completedQuests)
       }
     }
   })

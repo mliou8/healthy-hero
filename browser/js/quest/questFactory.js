@@ -6,32 +6,15 @@ app.factory('QuestFactory', function($http) {
           return response.data;
         });
     },
-    allQuests: function(questArr) {
-        var allQuests = [];
-        return questArr.forEach(function(quest) {
-            allQuests.push($http.get('/api/quest/' + quest));
+    populateQuests: function(questArr) {
+      var questsFull = [];
+      questArr.forEach(function(quest) {
+        return $http.get('/api/quest/' + quest)
+          .then(function(response) {
+            return questsFull.push(response.data)
           })
-          .then(function(data) {
-            return allQuests;
-          })
-      }
-      // getCompletedQuests: function (questArray) {
-      // 	var returnQuests = [];
-      // 	// questArray.forEach(function (quest) {
-      // 	// 	return $http.get('/api/quest/' + quest)
-      // 	// 	.then(function (response) {
-      // 	// 		returnQuests.push(response);
-      // 	// 	})
-      // 	// })
-      // 	// console.log('return quests', returnQuests);
-      // 	// return returnQuests;
-      // 	return$http(
-      // 	  method: 'GET',
-      // 	  url: '/api/quest/',
-      // 	  params: {
-      // 	    "id[]": ids // ids is [1, 2, 3, 4]
-      // 	  }
-      // 	)
-      // }
+      })
+      return questsFull;
+    }
   }
 })

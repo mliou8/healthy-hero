@@ -1,26 +1,17 @@
 app.controller('HistoryCtrl', function($scope, AuthService, currentUser, $state,
-  QuestFactory, ProductFactory, currentQuest) {
+  QuestFactory, ProductFactory, completedQuestsFull) {
 
-  $scope.currentUser = currentUser;
-  $scope.currentQuest = currentQuest;
+  // Populating the completed Quests product information
+  completedQuestsFull.forEach(function(quest) {
+    var productsFull = [];
+    // console.log("Quest products", quest[0].products);
+    quest[0].productsFull = ProductFactory.populateProducts(quest[0].products)
+  })
 
-  currentUser.completedQuests.forEach(function(quest) {
-      currentUser.completedQuestsFull = [];
-      QuestFactory.getQuest(quest)
-        .then(function(data) {
-          currentUser.completedQuestsFull.push(data);
-        })
-    })
-    .then(function(currentUser) {
-      currentUser.completedQuestsFull.products.forEach(function(product) {
-        currentUser.completedQuestsFull.productsFull = [];
-        ProductFactory.getProduct(product)
-          .then(function(product) {
-            currentUser.completedQuestsFull.productsFull.push(
-              product);
-          })
-      })
-    })
-
-
+  $scope.completedQuests = completedQuestsFull;
+  $scope.showDetails = false;
+  $scope.toggleDetails = function() {
+    console.log("Show details", $scope.showDetails);
+    $scope.showDetails = !$scope.showDetails;
+  }
 })

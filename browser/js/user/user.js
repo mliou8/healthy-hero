@@ -74,16 +74,3 @@ app.controller('UserCtrl', function($scope, AuthService, currentUser, $state,
   //Get all completed Quests
   // QuestFactory.getCompletedQuests($scope.currentUser.completedQuests)
 })
-
-
-
-app.factory('ProductFactory', function($http) {
-  return {
-    getProduct: function(productName) {
-      return $http.get('/api/product/' + productName)
-        .then(function(response) {
-          return response.data;
-        })
-    }
-  }
-})
