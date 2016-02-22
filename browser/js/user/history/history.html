@@ -12,16 +12,16 @@
       </div>
     </div>
 	<h4> Quests: </h4>
-	<div ng-repeat="quest in completedQuests"
+	<div ng-repeat="quest in completedQuests">
 	<ul class="media-list">
 		<li class="media">
 			<div class="media-body">
 				<h4 class="media-heading" style="font-style: italic"> <h4> {{quest[0].name}}({{quest[0].reward}} pts)</h4>
-				<button style="margin-top:-40px" class="btn pull-right btn-default align-right" ng-click="toggleDetails()"> Show Details </button>
 				<br>
 				<p> {{quest[0].description}} </p>
 				</div>
-				<div class = "row" ng-show="showDetails">
+				<button style="margin-top:-40px" class="btn pull-right btn-default align-right" ng-click="showDetails = !showDetails"> Show Details </button>
+				<div class="row" ng-show="showDetails">
 					<ul ng-repeat="product in quest[0].productsFull" class="media-list">
 							<li class="media">
 					    		<div class="media-left">
