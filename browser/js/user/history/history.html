@@ -22,12 +22,11 @@
 				<p> {{quest[0].description}} </p>
 				</div>
 				<div class = "row" ng-show="showDetails">
-
-					<ul ng-repeat="product in quest.productsFull" class="media-list">
+					<ul ng-repeat="product in quest[0].productsFull" class="media-list">
 							<li class="media">
 					    		<div class="media-left">
 					      			<a href="#">
-					        		<img class="media-object" style="width:152px;height:114px;" src="">
+					        		<img class="media-object" style="width:152px;height:114px;" src="{{product.photoUrl}}">
 					      			</a>
 					    		</div>
 					    	<div class="media-body">

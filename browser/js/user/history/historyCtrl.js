@@ -11,7 +11,6 @@ app.controller('HistoryCtrl', function($scope, AuthService, currentUser, $state,
   $scope.completedQuests = completedQuestsFull;
   $scope.showDetails = false;
   $scope.toggleDetails = function() {
-    console.log("Show details", $scope.showDetails);
     $scope.showDetails = !$scope.showDetails;
   }
 })
